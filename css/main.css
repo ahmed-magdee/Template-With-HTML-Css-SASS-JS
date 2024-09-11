@@ -186,6 +186,8 @@ header .container nav {
   }
   header .container nav ul.navbar.open li a {
     display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-left: 10px;
     -webkit-transition: 0.2s;
     transition: 0.2s;
@@ -430,7 +432,7 @@ header .container nav .toggle-menu {
 }
 @media (max-width: 767px) {
   .about-us .container .about-container .text,
-.about-us .container .about-container img {
+  .about-us .container .about-container img {
     width: 100%;
   }
 }
@@ -666,7 +668,7 @@ header .container nav .toggle-menu {
 }
 @media (max-width: 575px) {
   .our-projects .container .projects-container .box p,
-.our-projects .container .projects-container .box a {
+  .our-projects .container .projects-container .box a {
     font-size: 0.8rem;
   }
 }
@@ -855,17 +857,18 @@ header .container nav .toggle-menu {
   }
 }
 .contact-us .contact-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: minmax(0, 1fr);
+  grid-template-columns: repeat(1, minmax(0, 1fr));
   margin-top: 40px;
+  gap: 20px;
 }
-.contact-us .contact-container form,
-.contact-us .contact-container img {
-  width: 48.5%;
+@media (min-width: 768px) {
+  .contact-us .contact-container {
+    -ms-grid-columns: (minmax(0, 1fr))[2];
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 .contact-us .contact-container form input[type=text],
 .contact-us .contact-container form input[type=email],
@@ -915,8 +918,8 @@ header .container nav .toggle-menu {
 }
 @media (max-width: 575px) {
   .contact-us .contact-container form input[type=text],
-.contact-us .contact-container form input[type=email],
-.contact-us .contact-container form textarea {
+  .contact-us .contact-container form input[type=email],
+  .contact-us .contact-container form textarea {
     padding: 8px;
   }
 }
@@ -955,14 +958,17 @@ header .container nav .toggle-menu {
   }
 }
 @media (max-width: 991.9px) {
-  .contact-us .contact-container img {
+  .contact-us .contact-container .image {
     height: 334px;
   }
 }
 @media (max-width: 767px) {
-  .contact-us .contact-container img {
+  .contact-us .contact-container .image {
     display: none;
   }
+}
+.contact-us .contact-container .image img {
+  max-width: 100%;
 }
 
 /* End Contact Us */
